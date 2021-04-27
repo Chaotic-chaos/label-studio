@@ -27,23 +27,23 @@
     <form action="{% url 'user-detail' pk=user.pk %}" method="patch" class="user__info">
       <input type="hidden" name="_method" value="patch"/>
 
-      <header>Account info</header>
+      <header>帐户信息</header>
       <ul>
         <li class="field">
-          <label for="">E-mail</label>
+          <label for="">学号</label>
           <input type="text" class="ls-input" value="{{user.email}}" disabled />
         </li>
         <li class="field">
-          <label for="">First Name</label>
+          <label for="">姓名</label>
           <input type="text" class="ls-input" name="first_name" value="{{user.first_name}}" />
         </li>
-        <li class="field">
-          <label for="">Last Name</label>
-          <input type="text" class="ls-input" name="last_name" value="{{user.last_name}}" />
-        </li>
-        <li class="field">
-          <label for="">Phone</label>
-          <input type="text" class="ls-input" name="phone" value="{{user.phone}}" />
+<!--        <li class="field">-->
+<!--          <label for="">姓</label>-->
+<!--          <input type="text" class="ls-input" name="last_name" value="{{user.last_name}}" />-->
+<!--        </li>-->
+<!--        <li class="field">-->
+<!--          <label for="">Phone</label>-->
+<!--          <input type="text" class="ls-input" name="phone" value="{{user.phone}}" />-->
           <!-- <span>We'll send you sms with code if you change your number</span>
           <span class="error">Incorrect phone number!</span> -->
         </li>
@@ -64,7 +64,7 @@
           </div>
 
           <button class="ls-button ls-button_look_danger" name="delete-avatar" type="button">
-            Delete
+            删除
           </button>
 
           <input class="file-input" type="file" name="avatar" value="Choose"
@@ -77,38 +77,41 @@
         </div> -->
       </div>
       <footer>
-        <p class="secondary">Registered {{ user.date_joined|date:"M j, Y" }}</p>
-        <button class="ls-button ls-button_look_primary" onclick="smart_submit()">Save</button>
+        <p class="secondary">注册时间： {{ user.date_joined|date:"M j, Y" }}</p>
+        <button class="ls-button ls-button_look_primary" onclick="smart_submit()">保存修改</button>
       </footer>
     </form>
 
     <!-- Token -->
-    <form action="" class="access_token__info">
-      <header>Access Token</header>
-      <div class="field field--wide">
-        <label for="access_token">Use this token to authenticate with our API:</label>
-        <input id="access_token" class="ls-input" name="access_token" type="text" value="{{token}}" readonly />
-        <p class="actions">
-          <button type="button" class="blinking-status ls-button" data-copy="access_token">Copy</button>
-          <button type="button" class="blinking-status ls-button" name="renew">Renew</button>
-        </p>
-      </div>
-      <!-- Example -->
-      <div class="field field--wide">
-        <label for="example_fetch">Example fetch projects data:</label>
-        <textarea id="example_fetch" class="example_code ls-textarea" type="text" readonly style="height: 92px">
-          {% if settings.HOSTNAME %}
-            curl -X GET {{ settings.HOSTNAME }}/api/projects/ -H 'Authorization: Token {{token}}'
-          {% else %}
-            curl -X GET http://localhost:8080/api/projects/ -H 'Authorization: Token {{token}}'
-          {% endif %}
-        </textarea>
-        <p class="actions">
-          <button type="button" class="blinking-status ls-button" data-copy="example_fetch">Copy</button>
-          <a class="ls-button" href="https://labelstud.io/guide/api.html" target="_blank">Documentation</a>
-        </p>
-      </div>
-    </form>
+    <div style="display: None">
+      <form action="" class="access_token__info">
+        <header>Access Token</header>
+        <div class="field field--wide">
+          <label for="access_token">Use this token to authenticate with our API:</label>
+<!--          <input id="access_token" class="ls-input" name="access_token" type="text" value="{{token}}" readonly />-->
+          <input id="access_token" class="ls-input" name="access_token" type="text" value="{{user.email}}" readonly />
+          <p class="actions">
+            <button type="button" class="blinking-status ls-button" data-copy="access_token">Copy</button>
+            <button type="button" class="blinking-status ls-button" name="renew">Renew</button>
+          </p>
+        </div>
+        <!-- Example -->
+        <div class="field field--wide">
+          <label for="example_fetch">Example fetch projects data:</label>
+          <textarea id="example_fetch" class="example_code ls-textarea" type="text" readonly style="height: 92px">
+            {% if settings.HOSTNAME %}
+              curl -X GET {{ settings.HOSTNAME }}/api/projects/ -H 'Authorization: Token {{token}}'
+            {% else %}
+              curl -X GET http://localhost:8080/api/projects/ -H 'Authorization: Token {{token}}'
+            {% endif %}
+          </textarea>
+          <p class="actions">
+            <button type="button" class="blinking-status ls-button" data-copy="example_fetch">Copy</button>
+            <a class="ls-button" href="https://labelstud.io/guide/api.html" target="_blank">Documentation</a>
+          </p>
+        </div>
+      </form>
+    </div>
   </div>
 
   <script>

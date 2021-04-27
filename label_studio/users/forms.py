@@ -27,8 +27,9 @@ class LoginForm(forms.Form):
     """ For logging in to the app and all - session based
     """
     # use username instead of email when LDAP enabled
-    email = forms.CharField(label='User') if settings.USE_USERNAME_FOR_LOGIN\
-        else forms.EmailField(label='Email')
+    # email = forms.CharField(label='User') if settings.USE_USERNAME_FOR_LOGIN\
+    #     else forms.EmailField(label='Email')
+    email = forms.CharField(label='Email')
     password = forms.CharField(widget=forms.PasswordInput())
 
     def clean(self, *args, **kwargs):
@@ -77,7 +78,8 @@ class ResetPasswordForm(BasePasswordForm):
 
 
 class UserSignupForm(forms.Form):
-    email = forms.EmailField(label="Work Email", error_messages={'required': 'Invalid email'})
+    # email = forms.EmailField(label="Work Email", error_messages={'required': 'Invalid email'})
+    email = forms.CharField(label='Work Email', max_length=100, error_messages={'required': 'Invalid email'})
     password = forms.CharField(max_length=PASS_MAX_LENGTH,
                                error_messages={'required': PASS_LENGTH_ERR},
                                widget=forms.TextInput(attrs={'type': 'password'}))

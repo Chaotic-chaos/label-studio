@@ -32,18 +32,20 @@ export const GeneralSettings = () => {
         <Form.Row columnCount={1} rowGap="32px">
           <Input
             name="title"
-            label="Project Name"
+            label="任务名称"
             labelProps={{large: true}}
+            disabled="disabled"
           />
 
           <TextArea
             name="description"
-            label="Description"
+            label="项目详情"
             labelProps={{large: true}}
             style={{minHeight: 128}}
+            disabled="disabled"
           />
 
-          <RadioGroup name="color" label="Color" size="large" labelProps={{size: "large"}}>
+          <RadioGroup name="color" label="任务卡片颜色" size="large" labelProps={{size: "large"}}>
             {colors.map(color => (
               <RadioGroup.Button key={color} value={color}>
                 <Block name="color" style={{'--background': color}}/>
@@ -54,15 +56,15 @@ export const GeneralSettings = () => {
 
         <Form.Actions>
           <Form.Indicator>
-            <span case="success">Saved!</span>
+            <span case="success">修改已保存!</span>
           </Form.Indicator>
-          <Button type="submit" look="primary" style={{width: 120}}>Save</Button>
+          <Button type="submit" look="primary" style={{width: 120}}>提交修改</Button>
         </Form.Actions>
       </Form>
     </div>
   );
 };
 
-GeneralSettings.menuItem = "General";
+GeneralSettings.menuItem = "卡片设置";
 GeneralSettings.path = "/";
 GeneralSettings.exact = true;

@@ -5,7 +5,7 @@
 {% load filters %}
 
 {% block head %}
-<title>Signup | Label Studio</title>
+<!--<title>Signup | Label Studio</title>-->
 <link rel="stylesheet" href="{{ settings.HOSTNAME }}{% static 'css/login.css' %}"/>
 <link href="https://fonts.googleapis.com/css?family=Poppins:400i,500,700,800,900&display=swap" rel="stylesheet">
 
@@ -20,20 +20,20 @@ gtag('config', 'UA-129877673-1');
 
 {% block content %}
 <div class="login_page">
-  <h1>Welcome to Label Studio {{ settings.VERSION_EDITION }} {{versions.package.short_version}}</h1>
-  <h2>A full-fledged open source solution for data labeling</h2>
+  <h1>欢迎使用小语智能科技（云南）语料标记系统</h1>
+<!--  <h2>A full-fledged open source solution for data labeling</h2>-->
 
-  <img src="{{ settings.HOSTNAME }}{% static 'images/opossum_hanging.svg' %}" height="128px" />
+  <img src="{{ settings.HOSTNAME }}{% static 'images/yuntrans.png' %}" height="128px" />
 
   <div class="toggle">
-    <a href="{{ settings.HOSTNAME }}/user/signup" class="active">Sign up</a>
-    <a href="{{ settings.HOSTNAME }}/user/login">Login</a>
+    <a href="{{ settings.HOSTNAME }}/user/signup" class="active">注册</a>
+    <a href="{{ settings.HOSTNAME }}/user/login">登录</a>
   </div>
 
   <form id="signup-form" action="{% url 'user-signup' %}?{% if next %}&next={{ next }}{% endif %}{% if token %}&token={{ token }}{% endif %}" method="post">
     {% csrf_token %}
     <div>
-      <input type="text" class="ls-input" name="email" id="email" placeholder="Email" value="{{ form.data.email }}">
+      <input type="text" class="ls-input" name="email" id="email" placeholder="学号" value="{{ form.data.email }}">
       {% if user_form.errors.email %}
         <ul class="field_errors">
           {% for error in user_form.errors.email %}
@@ -43,7 +43,7 @@ gtag('config', 'UA-129877673-1');
       {% endif %}
       </div>
     <div>
-      <input type="password" class="ls-input" name="password" id="password" placeholder="Password">
+      <input type="password" class="ls-input" name="password" id="password" placeholder="密码">
       {% if user_form.errors.password %}
         <ul class="field_errors">
           {% for error in user_form.errors.password %}
@@ -59,7 +59,7 @@ gtag('config', 'UA-129877673-1');
         </p>
       {% endfor %}
     {% endif %}
-    <p><button type="submit" aria-label="Create Account" class="ls-button ls-button_look_primary">Create Account</button></p>
+    <p><button type="submit" aria-label="Create Account" class="ls-button ls-button_look_primary">注册</button></p>
   </form>
 </div>
 {% endblock %}

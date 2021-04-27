@@ -102,10 +102,10 @@ export const DataManagerPage = ({...props}) => {
 
   return crashed ? (
     <Block name="crash">
-      <Elem name="info">Project was deleted or not yet created</Elem>
+      <Elem name="info">任务已被删除或暂未创建，请联系系统管理员</Elem>
 
       <Button to="/projects">
-        Back to projects
+        回到主页
       </Button>
     </Block>
   ) : (
@@ -123,9 +123,9 @@ DataManagerPage.context = ({dmRef}) => {
   const {project} = useProject();
 
   const links = {
-    '/settings': 'Settings',
-    '/data/import': "Import",
-    '/data/export': 'Export',
+    '/settings': '设置',
+    // '/data/import': "Import",
+    // '/data/export': 'Export',
   };
 
   const updateCrumbs = (currentMode) => {

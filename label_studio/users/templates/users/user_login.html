@@ -4,7 +4,7 @@
 {% load filters %}
 
 {% block head %}
-<title>Login | Label Studio</title>
+<!--<title></title>-->
 <link rel="stylesheet" href="{{ settings.HOSTNAME }}{% static 'css/login.css' %}"/>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129877673-1"></script>
 <script>
@@ -17,20 +17,20 @@ gtag('config', 'UA-129877673-1');
 
 {% block content %}
 <div class="login_page">
-  <h1>Welcome to Label Studio {{ settings.VERSION_EDITION }} {{versions.package.short_version}}</h1>
-  <h2>A full-fledged open source solution for data labeling</h2>
+  <h1>欢迎使用小语智能科技（云南）语料标记系统</h1>
+<!--  <h2>A full-fledged open source solution for data labeling</h2>-->
 
-  <img src="{% static 'images/opossum_hanging.svg' %}" height="128px" />
+  <img src="{% static 'images/yuntrans.png' %}" height="128px" />
 
   <div class="toggle">
-    <a href="{{ settings.HOSTNAME }}/user/signup">Sign up</a>
-    <a href="{{ settings.HOSTNAME }}/user/login" class="active">Log in</a>
+    <a href="{{ settings.HOSTNAME }}/user/signup">注册</a>
+    <a href="{{ settings.HOSTNAME }}/user/login" class="active">登录</a>
   </div>
 
   <form id="login-form" action="{% url 'user-login' %}{% if next %}?next={{ next }}{% endif %}" method="post">
     {% csrf_token %}
-    <p><input type="text" class="ls-input" name="email" id="email" placeholder="Email" value="{{ form.data.email }}"></p>
-    <p><input type="password" class="ls-input" name="password" id="password" placeholder="Password"></p>
+    <p><input type="text" class="ls-input" name="email" id="email" placeholder="学号" value="{{ form.data.email }}"></p>
+    <p><input type="password" class="ls-input" name="password" id="password" placeholder="密码"></p>
     {% if form.non_field_errors %}
       {% for error in form.non_field_errors %}
         <p class="error">
@@ -38,7 +38,7 @@ gtag('config', 'UA-129877673-1');
         </p>
       {% endfor %}
     {% endif %}
-    <p><button type="submit" aria-label="Log In" class="ls-button ls-button_look_primary">Log in</button></p>
+    <p><button type="submit" aria-label="Log In" class="ls-button ls-button_look_primary">登录</button></p>
   </form>
 </div>
 {% endblock %}

@@ -12,11 +12,11 @@ export const MenuLayout = ({children, ...routeProps}) => {
     <SidebarMenu
       menuItems={[
         GeneralSettings,
-        LabelingSettings,
-        InstructionsSettings,
-        MachineLearningSettings,
-        StorageSettings,
-        DangerZone,
+        // LabelingSettings,
+        // InstructionsSettings,
+        // MachineLearningSettings,
+        // StorageSettings,
+        // DangerZone,
       ]}
       path={routeProps.match.url}
       children={children}

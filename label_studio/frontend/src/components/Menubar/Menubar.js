@@ -122,7 +122,8 @@ export const Menubar = ({
             closeOnClickOutside={!sidebarPinned}
           >
             <div className={`${menubarClass.elem('trigger')} main-menu-trigger`}>
-              <img src={absoluteURL("/static/icons/logo-black.svg")} alt="Label Studio Logo" height="22"/>
+              {/*<img src={absoluteURL("/static/icons/logo-black.svg")} alt="Label Studio Logo" height="22"/>*/}
+              <p>小语智能科技（云南）</p>
               <Hamburger opened={sidebarOpened}/>
             </div>
           </Dropdown.Trigger>
@@ -137,13 +138,13 @@ export const Menubar = ({
             <Menu>
               <Menu.Item
                 icon={<LsSettings/>}
-                label="Account & Settings"
+                label="账号设置"
                 href={absoluteURL("/user/account")}
               />
               {/* <Menu.Item label="Dark Mode"/> */}
               <Menu.Item
                 icon={<LsDoor/>}
-                label="Log Out"
+                label="退出"
                 href={absoluteURL("/logout")}
                 data-external
               />
@@ -169,14 +170,14 @@ export const Menubar = ({
             >
               <Menu>
                 <Menu.Item
-                  label="Projects"
+                  label="标注任务"
                   to="/projects"
                   icon={<IconFolder/>}
                   data-external
                   exact
                 />
                 <Menu.Item
-                  label="People"
+                  label="帐户管理"
                   to="/people"
                   icon={<IconPersonInCircle/>}
                   data-external
@@ -187,32 +188,32 @@ export const Menubar = ({
 
                 <VersionNotifier showNewVersion/>
 
-                <Menu.Item
-                  label="API"
-                  href="/docs/api"
-                  icon={<IconTerminal/>}
-                  target="_blank"
-                />
-                <Menu.Item
-                  label="Docs"
-                  href="https://labelstud.io/guide"
-                  icon={<IconBook/>}
-                  target="_blank"
-                />
-                <Menu.Item
-                  label="GitHub"
-                  href="https://github.com/heartexlabs/label-studio"
-                  icon={<LsGitHub/>}
-                  target="_blank"
-                />
-                <Menu.Item
-                  label="Slack Community"
-                  href="https://join.slack.com/t/label-studio/shared_invite/zt-cr8b7ygm-6L45z7biEBw4HXa5A2b5pw"
-                  icon={<LsSlack/>}
-                  target="_blank"
-                />
+                {/*<Menu.Item*/}
+                {/*  label="API"*/}
+                {/*  href="/docs/api"*/}
+                {/*  icon={<IconTerminal/>}*/}
+                {/*  target="_blank"*/}
+                {/*/>*/}
+                {/*<Menu.Item*/}
+                {/*  label="Docs"*/}
+                {/*  href="https://labelstud.io/guide"*/}
+                {/*  icon={<IconBook/>}*/}
+                {/*  target="_blank"*/}
+                {/*/>*/}
+                {/*<Menu.Item*/}
+                {/*  label="GitHub"*/}
+                {/*  href="https://github.com/heartexlabs/label-studio"*/}
+                {/*  icon={<LsGitHub/>}*/}
+                {/*  target="_blank"*/}
+                {/*/>*/}
+                {/*<Menu.Item*/}
+                {/*  label="Slack Community"*/}
+                {/*  href="https://join.slack.com/t/label-studio/shared_invite/zt-cr8b7ygm-6L45z7biEBw4HXa5A2b5pw"*/}
+                {/*  icon={<LsSlack/>}*/}
+                {/*  target="_blank"*/}
+                {/*/>*/}
 
-                <VersionNotifier showCurrentVersion/>
+                {/*<VersionNotifier showCurrentVersion/>*/}
 
                 <Menu.Divider/>
 
@@ -222,7 +223,7 @@ export const Menubar = ({
                   onClick={sidebarPin}
                   active={sidebarPinned}
                 >
-                  {sidebarPinned ?  "Unpin menu" : "Pin menu"}
+                  {sidebarPinned ?  "取消固定" : "固定菜单"}
                 </Menu.Item>
 
               </Menu>
